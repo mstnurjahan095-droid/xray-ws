@@ -1,0 +1,48 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "dns": {
+    "servers": [
+      "localhost"
+    ],
+    "queryStrategy": "UseIP"
+  },
+  "inbounds": [
+    {
+      "port": 8080,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "c4241d76-49fc-4582-8baa-992214eb1243",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    }
+  ]
+}
